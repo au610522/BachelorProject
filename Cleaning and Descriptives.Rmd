@@ -1,0 +1,116 @@
+---
+title: "Cleaning and Descriptives"
+author: "Josephine S Brunsgaard"
+date: "10/16/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+pacman::p_load(readr,brms,tidyverse,ggplot2, dplyr)
+```
+
+# Step 1
+## Create a collected logfile for all participants
+
+```{r logfiles + data cleaning}
+setwd("C:/Users/Bruger/Desktop/BA/DataProcessing")
+
+#loading the files 
+do.call_rbind_read.csv <- function(path, pattern = "*.csv") {
+    files = list.files(path, pattern, full.names = TRUE)
+    do.call(rbind, lapply(files, function(x) read.csv(x, stringsAsFactors = FALSE)))
+}
+
+logfiles <- do.call_rbind_read.csv("C:/Users/Bruger/Desktop/BA/DataProcessing/Logfiles")
+
+#cleaning the data 
+
+#FP10a
+fp10a <- subset(logfiles, ID == "FP10a")
+fp10a$condition <- "FlexPairA"
+
+ikke_fp10a <- subset(logfiles, ID != "FP10a")
+
+logfiles <- rbind(fp10a, ikke_fp10a)
+
+#removing space and replacing wrong letters
+logfiles$ID <- str_replace(logfiles$ID, pattern = " ", "")
+logfiles$ID <- str_replace(logfiles$ID, pattern = "D", "P")
+logfiles$ID <- str_replace(logfiles$ID, pattern = "s", "S")
+logfiles$ID <- str_replace(logfiles$ID, pattern = "5B", "5b")
+logfiles$ID <- str_replace(logfiles$ID, pattern = "B", "P")
+logfiles$ID <- str_replace(logfiles$ID, pattern = "53", "5a")
+logfiles$ID <- str_replace(logfiles$ID, pattern = "A", "a")
+logfiles$ID <- str_replace(logfiles$ID, pattern = "p", "P")
+logfiles$ID <- str_replace(logfiles$ID, pattern = "c", "C")
+logfiles$ID <- str_replace(logfiles$ID, pattern = "O", "0")
+
+```
+
+
+# step 2
+## Descriptives of the participants 
+```{r Descriptives}
+
+#getting only one data point from each participatn
+df <- subset(logfiles, part == "Part3" & trial == 1)
+
+gender <- df %>% 
+  group_by(gender) %>% 
+  summarise(n = n())
+
+df$condition <- str_replace(df$condition, pattern = "A", "")
+df$condition <- str_replace(df$condition, pattern = "B", "")
+
+# the destibution of participants within the different categories
+df$age <- as.numeric(df$age)
+
+gender_condition <- df %>% 
+  group_by(gender, condition) %>%
+  summarise(n= n())
+
+
+#mean age of the participants
+gender_condition_age <- df %>% 
+  group_by(condition) %>%
+  summarise(mean(age))
+
+mean_age <- df %>% 
+  group_by(gender) %>% 
+  summarise(mean(age))
+
+mean_age_under_65 <- df %>% 
+  subset(age < 40) %>% 
+  group_by(gender,condition) %>% 
+  summarise(mean(age))
+
+age <- subset(df, condition == "FlexPair" & age < 40)
+mean(age$age)
+```
+
+
+# Step 3
+## Adding part one to b-participants
+```{r adding part 1}
+part1 <- subset(logfiles, part == "Part1" & condition != "Single")
+part1$ID <- str_replace(part1$ID, pattern = "a", "b")
+part1$condition <- str_replace(part1$condition, pattern = "A", "B")
+
+part1 <- part1[ -c(4,5) ]
+
+df <- subset(logfiles, part == "Part3" & condition != "Single" & trial == 1)
+df <- df[ -c(2,3,6,7,8,9,10)]
+
+
+part1b <- merge(x = part1, y = df, by = "ID", all = TRUE)
+
+part1b <- subset(part1b, trial != "NA")
+
+logfiles <- rbind(x = logfiles, y = part1b)
+
+write.csv(logfiles, file = "Logfiles.csv")
+```
+
+
+

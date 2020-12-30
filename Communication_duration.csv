@@ -1,0 +1,21 @@
+ID,Strategy ,Condition,VC_duration_in_sec,neg_teamwork,teamwork
+CP01,3,Constant Pair ,187.9,1.75,5.25
+CP02,2,Constant Pair ,131.5,2.25,4.75
+CP03,3,Constant Pair ,193.4,2.5,4.5
+CP04,3,Constant Pair ,243.6,2.25,4.75
+CP05,3,Constant Pair ,164.6,5.75,1.25
+CP06,2,Constant Pair ,121.8,2.5,4.5
+CP07,1,Constant Pair ,115.3,1.25,5.75
+CP08,3,Constant Pair ,83.2,2.75,4.25
+CP09,1,Constant Pair ,271.8,3.5,3.5
+CP10,3,Constant Pair ,54.7,1.75,5.25
+FP01,2,Flex Pair,27,1.75,5.25
+FP02,2,Flex Pair,107.7,2.25,4.75
+FP03,2,Flex Pair,52.6,2.75,4.25
+FP04,2,Flex Pair,52.8,1.25,5.75
+FP05,2,Flex Pair,72.8,1,6
+FP06,3,Flex Pair,174.7,3.25,3.75
+FP07,3,Flex Pair,129.1,1.5,5.5
+FP08,1,Flex Pair,82.3,1.75,5.25
+FP09,3,Flex Pair,242.1,3.75,3.25
+FP10,3,Flex Pair,63.3,4,3

@@ -1,0 +1,32 @@
+﻿ID,Strategy ,Condition 
+S01,2,Individual
+S02,1,Individual
+S03,2,Individual
+S04,1,Individual
+S05,1,Individual
+S06,2,Individual
+S07,1,Individual
+S08,1,Individual
+S09,1,Individual
+S10,1,Individual
+S11,3,Individual
+CP01,3,Constant Pair 
+CP02,2,Constant Pair 
+CP03,3,Constant Pair 
+CP04,3,Constant Pair 
+CP05,3,Constant Pair 
+CP06,2,Constant Pair 
+CP07,1,Constant Pair 
+CP08,3,Constant Pair 
+CP09,1,Constant Pair 
+CP10,3,Constant Pair 
+FP01,2,Flex Pair
+FP02,2,Flex Pair
+FP03,2,Flex Pair
+FP04,2,Flex Pair
+FP05,2,Flex Pair
+FP06,3,Flex Pair
+FP07,3,Flex Pair
+FP08,1,Flex Pair
+FP09,3,Flex Pair
+FP10,3,Flex Pair

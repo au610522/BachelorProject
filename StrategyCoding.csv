@@ -1,0 +1,52 @@
+﻿ID,Strategy ,Condition ,Part
+S01,2,Individual,1
+S02,1,Individual,1
+S03,2,Individual,1
+S04,1,Individual,1
+S05,1,Individual,1
+S06,2,Individual,1
+S07,1,Individual,1
+S08,1,Individual,1
+S09,1,Individual,1
+S10,1,Individual,1
+S11,3,Individual,1
+CP01a,3,Constant Pair ,1
+CP02a,2,Constant Pair ,1
+CP03a,3,Constant Pair ,1
+CP04a,3,Constant Pair ,1
+CP05a,3,Constant Pair ,1
+CP06a,2,Constant Pair ,1
+CP07a,1,Constant Pair ,1
+CP08a,2,Constant Pair ,1
+CP09a,1,Constant Pair ,1
+CP10a,3,Constant Pair ,1
+CP01b,2,Constant Pair ,1
+CP02b,2,Constant Pair ,1
+CP03b,3,Constant Pair ,1
+CP04b,3,Constant Pair ,1
+CP05b,3,Constant Pair ,1
+CP06b,2,Constant Pair ,1
+CP07b,1,Constant Pair ,1
+CP08b,3,Constant Pair ,1
+CP09b,1,Constant Pair ,1
+CP10b,3,Constant Pair ,1
+FP01a,1,Flex Pair,1
+FP02a,2,Flex Pair,1
+FP03a,2,Flex Pair,1
+FP04a,2,Flex Pair,1
+FP05a,2,Flex Pair,1
+FP06a,3,Flex Pair,1
+FP07a,3,Flex Pair,1
+FP08a,1,Flex Pair,1
+FP09a,3,Flex Pair,1
+FP10a,3,Flex Pair,1
+FP01b,2,Flex Pair,1
+FP02b,2,Flex Pair,1
+FP03b,2,Flex Pair,1
+FP04b,2,Flex Pair,1
+FP05b,2,Flex Pair,1
+FP06b,3,Flex Pair,1
+FP07b,3,Flex Pair,1
+FP08b,1,Flex Pair,1
+FP09b,3,Flex Pair,1
+FP10b,3,Flex Pair,1
